@@ -6,12 +6,12 @@ public class Follow : MonoBehaviour
 
     private Vector3 _offset;
 
-    void Start()
+    private void Awake()
     {
         _offset = transform.position - _player.transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         transform.position = _player.transform.position + _offset;
     }
