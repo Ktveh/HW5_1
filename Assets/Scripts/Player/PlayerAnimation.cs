@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -17,7 +15,7 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetBool("Walk", true);
     }
 
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
     }

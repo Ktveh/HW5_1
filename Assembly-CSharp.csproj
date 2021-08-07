@@ -56,13 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Signaling\Signaling.cs" />
     <Compile Include="Assets\Scripts\Signaling\SignalingOn.cs" />
     <Compile Include="Assets\Scripts\Signaling\SignalingOff.cs" />
-    <Compile Include="Assets\Scripts\Invisible.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerMover.cs" />
-    <Compile Include="Assets\Scripts\Follow.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
-    <Compile Include="Assets\Scripts\Signaling\Signaling.cs" />
+    <Compile Include="Assets\Scripts\Invisible.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
+    <Compile Include="Assets\Scripts\Follow.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

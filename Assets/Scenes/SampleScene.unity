@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 15191713}
   - component: {fileID: 15191712}
   - component: {fileID: 15191711}
-  - component: {fileID: 15191717}
+  - component: {fileID: 15191718}
   - component: {fileID: 15191714}
+  - component: {fileID: 15191717}
   - component: {fileID: 15191715}
   - component: {fileID: 15191716}
   m_Layer: 0
@@ -281,6 +282,49 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &15191717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15191710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f5a09ac3ac62c44bc648c07e2c8a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _went:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 15191718}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _stopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 15191718}
+        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _playerMove: {fileID: 0}
+--- !u!114 &15191718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -591,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312e0fdc193bd494ca20a506b9dc020b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 15191710}
+  _target: {fileID: 15191710}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -745,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c4db0b7d10b3741956ceaaff4e80e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alpha: 0.5
+  _targetAlpha: 0.5
 --- !u!61 &523400761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1458,7 +1502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c4db0b7d10b3741956ceaaff4e80e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alpha: 0.5
+  _targetAlpha: 0.5
 --- !u!61 &634572522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1941,7 +1985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c4db0b7d10b3741956ceaaff4e80e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alpha: 0.5
+  _targetAlpha: 0.5
 --- !u!61 &1237655790
 BoxCollider2D:
   m_ObjectHideFlags: 0

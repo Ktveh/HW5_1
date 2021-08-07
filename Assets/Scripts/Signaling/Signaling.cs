@@ -1,61 +1,50 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Animator))]
 public class Signaling : MonoBehaviour
 {
-    private bool _isOn;
     private AudioSource _audioSource;
     private Animator _animator;
+    private Coroutine _changeVolumeJob;
 
     public void TurnOn()
     {
-        if (!_isOn)
-        {
-            _animator.SetBool("Alarm", true);
-            _audioSource.Play();
-            _audioSource.volume = 0;
-            _isOn = true;
-        }
+        _animator.SetBool("Alarm", true);
+        StartChangeVolume(1);
     }
 
     public void TurnOff()
     {
-        if (_isOn)
-        {
-            _animator.SetBool("Alarm", false);
-            _isOn = false;
-        }
+        _animator.SetBool("Alarm", false);
+        StartChangeVolume(0);
     }
 
-    private void Awake()
+    private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
-        _isOn = false;
+        _audioSource.volume = 0;
     }
 
-    private void Update()
+    private void StartChangeVolume(float targetValue)
     {
-        if (_isOn)
-        {
-            ChangeVolume(1);
-        }
-        else
-        {
-            if (_audioSource.volume > 0)
-            {
-                ChangeVolume(0);
-            }
-            else
-            {
-                _audioSource.Stop();
-            }
-        }
+        if (_changeVolumeJob != null)
+            StopCoroutine(_changeVolumeJob);
+        _changeVolumeJob = StartCoroutine(ChangeVolume(targetValue));
     }
 
-    private void ChangeVolume(float targetValue)
+    private IEnumerator ChangeVolume(float targetValue)
     {
-        _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetValue, 0.2f * Time.deltaTime);
+        if (_audioSource.volume == 0)
+            _audioSource.Play();
+        while (_audioSource.volume != targetValue)
+        {
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetValue, 0.2f * Time.deltaTime);
+            yield return null;
+        }
+        if (_audioSource.volume == 0)
+            _audioSource.Stop();
     }
 }

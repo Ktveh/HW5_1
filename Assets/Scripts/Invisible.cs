@@ -1,32 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Invisible : MonoBehaviour
 {
-    [SerializeField] private float _alpha;
-
+    [SerializeField] private float _targetAlpha;
+    
+    private Coroutine _setAlhpaColorJob;
     private SpriteRenderer _spriteRenderer;
 
-    private void Awake()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SetAlphaColor(_alpha);
+        StartSetAlphaColor(_targetAlpha);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        SetAlphaColor(1);
+        StartSetAlphaColor(1);
     }
 
-    private void SetAlphaColor(float alpha)
+    private void StartSetAlphaColor(float targetValue)
+    {
+        if (_setAlhpaColorJob != null)
+            StopCoroutine(_setAlhpaColorJob);
+        _setAlhpaColorJob = StartCoroutine(SetAlphaColor(targetValue));
+    }
+
+    private IEnumerator SetAlphaColor(float targetValue)
     {
         Color color = _spriteRenderer.color;
-        _spriteRenderer.color = new Color(color.r, color.g, color.b, alpha);
+        while (color.a != targetValue)
+        {
+            color.a = Mathf.MoveTowards(color.a, targetValue, 0.5f * Time.deltaTime);
+            _spriteRenderer.color = new Color(color.r, color.g, color.b, color.a);
+            yield return null;
+        }
     }
 }
