@@ -5,6 +5,7 @@ using UnityEngine;
 public class Invisible : MonoBehaviour
 {
     [SerializeField] private float _targetAlpha;
+    [SerializeField] private float _speedChangeAlpha;
     
     private Coroutine _setAlhpaColorJob;
     private SpriteRenderer _spriteRenderer;
@@ -36,8 +37,8 @@ public class Invisible : MonoBehaviour
         Color color = _spriteRenderer.color;
         while (color.a != targetValue)
         {
-            color.a = Mathf.MoveTowards(color.a, targetValue, 0.5f * Time.deltaTime);
-            _spriteRenderer.color = new Color(color.r, color.g, color.b, color.a);
+            color.a = Mathf.MoveTowards(color.a, targetValue, _speedChangeAlpha * Time.deltaTime);
+            _spriteRenderer.color = color;
             yield return null;
         }
     }

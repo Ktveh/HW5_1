@@ -293,37 +293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f5a09ac3ac62c44bc648c07e2c8a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _went:
+  Went:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 15191718}
-        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
-        m_MethodName: Move
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _stopped:
+      m_Calls: []
+  Stopped:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 15191718}
-        m_TargetAssemblyTypeName: PlayerAnimation, Assembly-CSharp
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _playerMove: {fileID: 0}
+      m_Calls: []
 --- !u!114 &15191718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetAlpha: 0.5
+  _speedChangeAlpha: 0.5
 --- !u!61 &523400761
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1503,6 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetAlpha: 0.5
+  _speedChangeAlpha: 0.5
 --- !u!61 &634572522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1986,6 +1963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetAlpha: 0.5
+  _speedChangeAlpha: 0.5
 --- !u!61 &1237655790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10417,6 +10395,7 @@ GameObject:
   - component: {fileID: 1750110229}
   - component: {fileID: 1750110228}
   - component: {fileID: 1750110234}
+  - component: {fileID: 1750110232}
   m_Layer: 0
   m_Name: Signaling_0
   m_TagString: Untagged
@@ -10604,6 +10583,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1750110232
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750110227}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &1750110234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10616,6 +10610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e75bed3378c6a46811a443d44d2641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedChangeVolume: 0.2
 --- !u!1 &1771057442
 GameObject:
   m_ObjectHideFlags: 0

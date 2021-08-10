@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource), typeof(Animation))]
 public class Signaling : MonoBehaviour
 {
+    [SerializeField] private float _speedChangeVolume;
+
     private AudioSource _audioSource;
     private Animator _animator;
     private Coroutine _changeVolumeJob;
@@ -41,7 +42,7 @@ public class Signaling : MonoBehaviour
             _audioSource.Play();
         while (_audioSource.volume != targetValue)
         {
-            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetValue, 0.2f * Time.deltaTime);
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetValue, _speedChangeVolume * Time.deltaTime);
             yield return null;
         }
         if (_audioSource.volume == 0)

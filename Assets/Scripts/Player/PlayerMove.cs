@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
         transform.Rotate(0, 0, angle * Time.deltaTime);
     }
 
-    public void Move(float direction)
+    public void Walk(float direction)
     {
         float speed = _speed * direction;
         transform.Translate(0, speed * Time.deltaTime, 0);
